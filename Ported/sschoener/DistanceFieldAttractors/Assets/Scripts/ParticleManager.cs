@@ -87,6 +87,7 @@ public class ParticleManager : MonoBehaviour
         {
             Orbiter orbiter = orbiters[i];
             Vector3 scale = new Vector3(.1f, .01f, Mathf.Max(.1f, orbiter.velocity.magnitude * speedStretch));
+           
             Matrix4x4 matrix = Matrix4x4.TRS(orbiter.position, Quaternion.LookRotation(orbiter.velocity), scale);
             matrices[i / instancesPerBatch][i % instancesPerBatch] = matrix;
             colors[i / instancesPerBatch][i % instancesPerBatch] = orbiter.color;
