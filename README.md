@@ -11,7 +11,7 @@ I'm learning DOTS and trying to do some cool musicianish stuffs here.
 General
 * [v] Some Aesthetics  
 * [~] Mobile performance testing
-* [] VR performance testing
+* [v] VR performance testing
 * [] Hilbert curve to create objs from scratch
 * [] Point cloud reference or volumetric video ref
 * [] Mouse reference to attractors interference
