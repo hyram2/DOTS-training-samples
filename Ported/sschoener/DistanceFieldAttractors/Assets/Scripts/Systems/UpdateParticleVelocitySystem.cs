@@ -30,7 +30,7 @@ namespace Systems {
             return Entities.ForEach((Entity entity, ref PositionComponent position, ref VelocityComponent velocity, in PositionInDistanceFieldComponent fieldPosition) =>
             {
                 var rng = new Random(seed * (uint)(1 + entity.Index));
-                float3 deltaV = -fieldPosition.Normal * attraction * math.clamp(fieldPosition.Distance, -1, 1);
+                float3 deltaV = -fieldPosition.Normal * attraction * math.clamp(fieldPosition.Distance * 25f, -1, 1);
                 deltaV += rng.NextFloat3Direction() * rng.NextFloat() * jitter;
                 velocity.Value = .99f * (velocity.Value + deltaV);
                 position.Value += velocity.Value;

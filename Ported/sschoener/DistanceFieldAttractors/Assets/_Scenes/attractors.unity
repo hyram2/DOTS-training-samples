@@ -206,7 +206,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 38c875c50f47e834cb5d2381eda8d51d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e897f30f7fd0de143810cdcd3b51b214, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -399,11 +399,11 @@ MonoBehaviour:
   SurfaceColor: {r: 0, g: 1, b: 0.868814, a: 1}
   InteriorColor: {r: 0.7924528, g: 0, b: 0.5402243, a: 1}
   ExteriorColor: {r: 1, g: 0.496713, b: 0, a: 1}
-  SpeedStretch: 2.5
+  SpeedStretch: 1.9
   Jitter: 20
   Attraction: 5
-  ExteriorColorDist: 5
-  InteriorColorDist: 1.5
+  ExteriorColorDist: 10.7
+  InteriorColorDist: 1.3
   ColorStiffness: 0.339
 --- !u!4 &843941424
 Transform:
@@ -1474,6 +1474,7 @@ MonoBehaviour:
   - 0
   - 0
   modifier: 1.2
+  camera: {fileID: 1661492134}
 --- !u!4 &861426282
 Transform:
   m_ObjectHideFlags: 0
@@ -1741,6 +1742,7 @@ GameObject:
   - component: {fileID: 1661492135}
   - component: {fileID: 1661492140}
   - component: {fileID: 1661492139}
+  - component: {fileID: 1661492141}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1814,8 +1816,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661492134}
-  m_LocalRotation: {x: 0.2701389, y: -0.53307605, z: 0.18457128, w: 0.78024894}
-  m_LocalPosition: {x: 13.619409, y: 11.071902, z: -5.0779915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -3.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1839,7 +1841,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
-  antialiasingMode: 0
+  antialiasingMode: 1
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -1848,7 +1850,7 @@ MonoBehaviour:
   subpixelMorphologicalAntialiasing:
     quality: 2
   fastApproximateAntialiasing:
-    fastMode: 0
+    fastMode: 1
     keepAlpha: 0
   fog:
     enabled: 1
@@ -1898,6 +1900,24 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!114 &1661492141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661492134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2a9c34df4095f47b9ca8f975175f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Device: 0
+  m_PoseSource: 2
+  m_PoseProviderComponent: {fileID: 0}
+  m_TrackingType: 0
+  m_UpdateType: 0
+  m_UseRelativeTransform: 1
 --- !u!1 &2063147317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,7 +1948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b78327dd9764eb299a67e7655a86022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParticleCount: 20000
+  ParticleCount: 40000
 --- !u!4 &2063147319
 Transform:
   m_ObjectHideFlags: 0

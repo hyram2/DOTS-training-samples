@@ -3,6 +3,7 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
+using UnityEngine;
 
 namespace Systems
 {
@@ -23,6 +24,10 @@ namespace Systems
         protected override JobHandle OnUpdate(JobHandle inputDeps)
         {
             var data = new NativeArray<float>(1024, Allocator.TempJob);
+//            var xpos = AudioManagement.x;
+//            var ypos = AudioManagement.y;
+//            var zpos = AudioManagement.z;
+//            
             data.CopyFrom(AudioManagement.instance.data);
             var modifier = AudioManagement.instance.modifier;
             var particleSetup = EntityManager.GetSharedComponentData<ParticleSetupComponent>(m_ParticleSetup.GetSingletonEntity());
@@ -33,6 +38,8 @@ namespace Systems
                 quaternion rotation = MathHelpers.LookRotationWithUp(velocity.Value / speed);
                 float3 scale = new float3(.1f, .01f, math.max(.1f, speed * speedStretch));
                 scale *= (data[en.Index % data.Length]*modifier * 12f);
+//                var a = (Mathf.Abs(position.Value.x) + Mathf.Abs(position.Value.y) + Mathf.Abs(position.Value.z)) / 3;
+//                scale *= (a / modifier);
                 localToWorld.Value = float4x4.TRS(position.Value, rotation, scale);
             }).Schedule(inputDeps);
             result.Complete();

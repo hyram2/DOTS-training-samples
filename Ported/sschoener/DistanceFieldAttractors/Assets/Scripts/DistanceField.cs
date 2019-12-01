@@ -35,7 +35,7 @@ public class DistanceField : MonoBehaviour
         {
             for (int i = 0; i < 5; i++)
             {
-                float orbitRadius = i * .5f + 2f;
+                float orbitRadius = i * .5f + 4f;
                 float angle1 = time * 4f * (1f + i * .1f);
                 float angle2 = time * 4f * (1.2f + i * .117f);
                 float angle3 = time * 4f * (1.3f + i * .1618f);
@@ -43,7 +43,7 @@ public class DistanceField : MonoBehaviour
                 float cy = Mathf.Sin(angle2) * orbitRadius;
                 float cz = Mathf.Sin(angle3) * orbitRadius;
 
-                float newDist = SmoothMin(distance, Sphere(x - cx, y - cy, z - cz, 2f), 2f);
+                float newDist = SmoothMin(distance, Sphere(x - cx, y - cy, z - cz, 4f), 4f);
                 if (newDist < distance)
                 {
                     normal = new Vector3(x - cx, y - cy, z - cz);
@@ -61,7 +61,7 @@ public class DistanceField : MonoBehaviour
                 float cy = Mathf.Sin(angle);
                 float cz = Mathf.Sin(angle) * orbitRadius;
 
-                float newDist = Sphere(x - cx, y - cy, z - cz, 2f);
+                float newDist = Sphere(x - cx, y - cy, z - cz, 4f);
                 if (newDist < distance)
                 {
                     normal = new Vector3(x - cx, y - cy, z - cz);
@@ -71,7 +71,7 @@ public class DistanceField : MonoBehaviour
         }
         else if (instance.model == DistanceFieldModel.SpherePlane)
         {
-            float sphereDist = Sphere(x, y, z, 5f);
+            float sphereDist = Sphere(x, y, z, 10f);
             Vector3 sphereNormal = new Vector3(x, y, z).normalized;
 
             float planeDist = y;
@@ -93,12 +93,12 @@ public class DistanceField : MonoBehaviour
             x -= spacing * .5f;
             y -= spacing * .5f;
             z -= spacing * .5f;
-            distance = Sphere(x, y, z, 5f);
+            distance = Sphere(x, y, z, 10f);
             normal = new Vector3(x, y, z);
         }
         else if (instance.model == DistanceFieldModel.FigureEight)
         {
-            float ringRadius = 4f;
+            float ringRadius = 8f;
             float flipper = 1f;
             if (z < 0f)
             {
@@ -117,7 +117,7 @@ public class DistanceField : MonoBehaviour
         else if (instance.model == DistanceFieldModel.PerlinNoise)
         {
             float perlin = Mathf.PerlinNoise(x * .2f, z * .2f);
-            distance = y - perlin * 6f;
+            distance = y - perlin * 8f;
             normal = Vector3.up;
         }
 

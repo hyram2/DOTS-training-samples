@@ -15,7 +15,7 @@ namespace Systems {
         {
             // this is very much overkill, since scheduling the job is likely much more expensive than just
             // updating on the main thread.
-            var deltaTime = Time.DeltaTime;
+            var deltaTime = Time.deltaTime;
             var numModels = m_NumModels;
             var rng = new Random((1 + (uint)UnityEngine.Time.frameCount) * 104729);
             inputDeps.Complete();
